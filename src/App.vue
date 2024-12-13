@@ -1,7 +1,12 @@
 <template class="container">
   <Header :links="headerLinks" :logoDetails="logoInfo" />
   <main>
-    <section>
+    <section class="toggler">
+      <button @click="showToDo = !showToDo">{{ showToDo ? 'Hide' : 'Show' }} To Do</button>
+      <button @click="showCounter = !showCounter">{{ showCounter ? 'Hide' : 'Show' }} Counter</button>
+      <button @click="showCard = !showCard">{{ showCard ? 'Hide' : 'Show' }} Card</button>
+    </section>
+    <section class="todoSection" v-if="showToDo">
       <h1>{{ title }}</h1>
       <h2>Add a new task</h2>
       <span>You have {{ allTasks }} {{ allTasks > 1 ? 'tasks' : 'task' }} at the moment</span>
@@ -31,7 +36,7 @@
         </li>
       </ul>
     </section>
-    <section>
+    <section class="counterSection" v-if="showCounter">
       <h2>Child component (Counter): </h2>
       <div>
         <Counter text="Button 1" />
@@ -46,7 +51,7 @@
         <br> <br>
       </div>
     </section>
-    <section>
+    <section class="cardSection" v-if="showCard">
       <h2>Quotes (Components and Props)</h2>
       <div class="cardWrapper">
         <QuoteCard 
@@ -73,6 +78,9 @@ export default {
   data() {
     return {
       title: 'My To Do App',
+      showToDo: false,
+      showCounter: false,
+      showCard: false,
       newTask: '',
       logoInfo: {
         logoUrl: logo,
@@ -140,7 +148,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 body, html {
   margin: 0;
   padding: 0;
@@ -154,6 +162,28 @@ body, html {
 }
 .strikeout {
   text-decoration: line-through;
+}
+.toggler {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 10px;
+
+  button {
+    background-color: aquamarine;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  button:hover {
+    background-color: rgb(236, 113, 76);
+    color: azure;
+    cursor: pointer;
+  }
 }
 .cardWrapper {
   display: flex;
