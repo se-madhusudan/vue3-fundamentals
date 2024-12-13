@@ -59,13 +59,15 @@
       </div>
     </section>
   </main>
+  <Footer :currentYear="year" :logoDetails="logoInfo" />
 </template>
 
 <script>
+import logo from './assets/Img/to-do-list.png';
 import Counter from './components/Counter.vue';
 import QuoteCard from './components/QuoteCard.vue';
 import Header from './components/Header.vue';
-import logo from './assets/Img/to-do-list.png';
+import Footer from './components/Footer.vue';
 
 export default {
   data() {
@@ -92,14 +94,16 @@ export default {
         {url: '#about', text: 'About Us'},
         {url: '#contact', text: 'Contact Us'},
         {url: '#quotes', text: 'Quotes'},
-      ]
+      ],
+      year: new Date().getFullYear()
     }
   },
 
   components: {
+    Header,
     Counter,
     QuoteCard,
-    Header
+    Footer
   },
 
   methods: {
