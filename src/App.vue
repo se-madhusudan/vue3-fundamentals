@@ -7,7 +7,6 @@
       <button @click="showCard = !showCard">{{ showCard ? 'Hide' : 'Show' }} Card</button>
     </section>
     <section class="todoSection" v-if="showToDo">
-      <h1>{{ title }}</h1>
       <h2>Add a new task</h2>
       <span>You have {{ allTasks }} {{ allTasks > 1 ? 'tasks' : 'task' }} at the moment</span>
       <div>
@@ -185,11 +184,28 @@ body, html {
     cursor: pointer;
   }
 }
+.todoSection {
+  background-color: beige;
+  margin: 0;
+  h2 {
+    margin: 0;
+  }
+}
+.counterSection{
+  background-color: rgb(188, 241, 224);
+  margin: 0;
+  h2 {
+    margin: 0;
+  }
+}
 .cardWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 10px auto;
+  margin: 0 auto;
+  h2 {
+    margin: 0;
+  }
 }
 </style>
 
