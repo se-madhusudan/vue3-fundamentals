@@ -6,7 +6,7 @@
         <nav class="header__nav">
             <ul>
                 <li v-for="(link, index) in links" :key="index" >
-                    <a :href="link.url">{{ link.text }}</a>
+                    <router-link :to="link.url" class="nav-links">{{ link.text }}</router-link>
                 </li>
             </ul>
         </nav>
@@ -18,11 +18,11 @@ export default {
     props: {
         links: {
             type: Array,
-            Required: true
+            required: true
         },
         logoDetails: {
             type: Object,
-            Required: true
+            required: true
         }
     }
 }
@@ -61,7 +61,7 @@ export default {
             padding: 0;
 
             li {
-                a {
+                .nav-links {
                     text-decoration: none;
                     font-size: 18px;
                     font-weight: 700;
@@ -69,7 +69,7 @@ export default {
                     color: #f13d10;
                 }
 
-                a:hover {
+                .nav-links:hover {
                     color: #0074a1;
                 }
             }
