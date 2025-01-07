@@ -21,7 +21,6 @@ export default {
             type: Number,
             Required: true
         }
-
     }
 }
 </script>

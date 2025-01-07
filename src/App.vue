@@ -6,6 +6,7 @@
       <button @click="showCounter = !showCounter">{{ showCounter ? 'Hide' : 'Show' }} Counter</button>
       <button @click="showCard = !showCard">{{ showCard ? 'Hide' : 'Show' }} Card</button>
     </section>
+
     <section class="todoSection" v-if="showToDo">
       <h2>Add a new task</h2>
       <span>You have {{ allTasks }} {{ allTasks > 1 ? 'tasks' : 'task' }} at the moment</span>
@@ -35,6 +36,7 @@
         </li>
       </ul>
     </section>
+
     <section class="counterSection" v-if="showCounter">
       <h2>Child component (Counter): </h2>
       <div>
@@ -50,6 +52,7 @@
         <br> <br>
       </div>
     </section>
+
     <section class="cardSection" v-if="showCard">
       <h2>Quotes (Components and Props)</h2>
       <div class="cardWrapper">
@@ -76,7 +79,6 @@ import Footer from './components/Footer.vue';
 export default {
   data() {
     return {
-      title: 'My To Do App',
       showToDo: false,
       showCounter: false,
       showCard: false,
@@ -187,24 +189,39 @@ body, html {
 .todoSection {
   background-color: beige;
   margin: 0;
+  padding: 20px;
   h2 {
     margin: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 10px 20px 0 20px;
+    li {
+      margin: 10px 0;
+    }
   }
 }
 .counterSection{
   background-color: rgb(188, 241, 224);
   margin: 0;
+  padding: 20px;
   h2 {
     margin: 0;
   }
 }
-.cardWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
+.cardSection {
+  padding: 20px;
   h2 {
     margin: 0;
+  }
+  .cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    h2 {
+      margin: 0;
+    }
   }
 }
 </style>
