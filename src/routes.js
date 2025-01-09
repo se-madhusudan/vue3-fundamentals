@@ -1,8 +1,8 @@
-import { createWebHashHistory, createRouter } from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 import Home from './views/Home.vue'
 import AboutUs from './views/AboutUs.vue'
 import ContactUs from './views/ContactUs.vue'
-import Quotes from './views/Quotes.vue'
+import Tech from './views/Tech.vue'
 
 const routes = [
     {
@@ -21,14 +21,14 @@ const routes = [
         component:ContactUs
     },
     {
-        name: 'Quotes',
-        path: '/quotes',
-        component:Quotes
+        name: 'Tech',
+        path: '/tech',
+        component:Tech
     },
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes
 })
 

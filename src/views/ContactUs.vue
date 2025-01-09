@@ -1,83 +1,65 @@
 <template>
-    <Header :links="headerLinks" :logoDetails="logoInfo" />
-    <main>
-        <section class="contact-form">
-            <div class="form-container">
-            <h1 class="form-heading">Get in Touch</h1>
-            <p class="form-caption">We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.</p>
-            <form @submit.prevent="handleSubmit">
-                <!-- Name Input -->
-                <div class="form-group">
-                <label for="name">Your Name<span>*</span></label>
-                <input
-                    type="text"
-                    id="name"
-                    v-model="formData.name"
-                    placeholder="Enter your name"
-                    required
-                />
-                </div>
-                <!-- Email Input -->
-                <div class="form-group">
-                <label for="email">Your Email<span>*</span></label>
-                <input
-                    type="email"
-                    id="email"
-                    v-model="formData.email"
-                    placeholder="Enter your email"
-                    required
-                />
-                </div>
-                <!-- Subject Input -->
-                <div class="form-group">
-                <label for="subject">Subject<span>*</span></label>
-                <input
-                    type="text"
-                    id="subject"
-                    v-model="formData.subject"
-                    placeholder="Enter the subject"
-                    required
-                />
-                </div>
-                <!-- Message Textarea -->
-                <div class="form-group">
-                <label for="message">Your Message<span>*</span></label>
-                <textarea
-                    id="message"
-                    v-model="formData.message"
-                    rows="5"
-                    placeholder="Write your message here..."
-                    required
-                ></textarea>
-                </div>
-                <!-- Submit Button -->
-                <button type="submit" class="form-submit">Send Message</button>
-            </form>
+    <section class="contact-form">
+        <div class="form-container">
+        <h1 class="form-heading">Get in Touch</h1>
+        <p class="form-caption">We'd love to hear from you! Please fill out the form below and we'll get back to you as soon as possible.</p>
+        <form @submit.prevent="handleSubmit">
+            <!-- Name Input -->
+            <div class="form-group">
+            <label for="name">Your Name<span>*</span></label>
+            <input
+                type="text"
+                id="name"
+                v-model="formData.name"
+                placeholder="Enter your name"
+                required
+            />
             </div>
-        </section>
-    </main>
-    <Footer :currentYear="year" :logoDetails="logoInfo" />
+            <!-- Email Input -->
+            <div class="form-group">
+            <label for="email">Your Email<span>*</span></label>
+            <input
+                type="email"
+                id="email"
+                v-model="formData.email"
+                placeholder="Enter your email"
+                required
+            />
+            </div>
+            <!-- Subject Input -->
+            <div class="form-group">
+            <label for="subject">Subject<span>*</span></label>
+            <input
+                type="text"
+                id="subject"
+                v-model="formData.subject"
+                placeholder="Enter the subject"
+                required
+            />
+            </div>
+            <!-- Message Textarea -->
+            <div class="form-group">
+            <label for="message">Your Message<span>*</span></label>
+            <textarea
+                id="message"
+                v-model="formData.message"
+                rows="5"
+                placeholder="Write your message here..."
+                required
+            ></textarea>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="form-submit">Send Message</button>
+        </form>
+        </div>
+    </section>
 </template>
 
 <script>
-  import logo from '../assets/Img/to-do-list.png';
-  import Header from '../components/Header.vue';
-  import Footer from '../components/Footer.vue';
 
   export default {
     data() {
         return {
-            logoInfo: {
-                logoUrl: logo,
-                logoCaption: 'To Do List Logo',
-            },
-            headerLinks: [
-                {url: '/', text: 'Home'},
-                {url: '/about', text: 'About Us'},
-                {url: '/contact', text: 'Contact Us'},
-                {url: '/quotes', text: 'Quotes'},
-            ],
-            year: new Date().getFullYear(),
             formData: {
                 name: "",
                 email: "",
@@ -85,11 +67,6 @@
                 message: "",
             },
         }
-    },
-
-    components: {
-        Header,
-        Footer
     },
 
     methods: {

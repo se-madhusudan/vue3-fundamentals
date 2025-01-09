@@ -1,12 +1,21 @@
 <template>
     <header class="header">
         <div class="header__logo">
-            <img :src="logoDetails.logoUrl" :alt="logoDetails.logoCaption" />
+            <router-link to="/" class="nav-links"><img :src="logoDetails.logoUrl" :alt="logoDetails.logoCaption" /></router-link>
         </div>
         <nav class="header__nav">
             <ul>
-                <li v-for="(link, index) in links" :key="index" >
-                    <router-link :to="link.url" class="nav-links">{{ link.text }}</router-link>
+                <li>
+                    <router-link to="/" class="nav-links">Home</router-link>
+                </li>
+                <li>
+                    <router-link to="/about" class="nav-links">About Us</router-link>
+                </li>
+                <li>
+                    <router-link to="/contact" class="nav-links">Contact Us</router-link>
+                </li>
+                <li>
+                    <router-link to="/tech" class="nav-links">Tech</router-link>
                 </li>
             </ul>
         </nav>
@@ -16,10 +25,6 @@
 <script>
 export default {
     props: {
-        links: {
-            type: Array,
-            required: true
-        },
         logoDetails: {
             type: Object,
             required: true
