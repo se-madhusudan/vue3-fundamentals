@@ -36,8 +36,18 @@ export default {
           likes: 0,
         },
         {
-          url: "https://www.youtube.com/embed/iInUBOVeBCc",
-          title: "Nginx Explained",
+          url: "https://www.youtube.com/embed/WtkKwO1viI8",
+          title: "GraphQL Explained",
+          likes: 0,
+        },
+        {
+          url: "https://www.youtube.com/embed/WXqOc-oor-E",
+          title: "Two weeks what it takes",
+          likes: 0,
+        },
+        {
+          url: "https://www.youtube.com/embed/ZlACPo-Gtw4",
+          title: "Proxy Interview Busted",
           likes: 0,
         },
         {
@@ -50,7 +60,16 @@ export default {
           title: "HTTP Explained",
           likes: 0,
         },
-        // Add more video objects as needed
+        {
+          url: "https://www.youtube.com/embed/bxuYDT-BWaI",
+          title: "API Explained",
+          likes: 0,
+        },
+        {
+          url: "https://www.youtube.com/embed/AOf2gGVSz68",
+          title: "API vs SDK Explained",
+          likes: 0,
+        },
       ],
     };
   },

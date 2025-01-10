@@ -11,8 +11,8 @@
     </div>
     <div class="videoCard__info">
       <h3 class="videoCard__title">{{ title }}</h3>
-      <div class="videoCard__likes" @click="incrementLikes">
-        <span class="videoCard__like-icon">👍</span>
+      <div class="videoCard__likes">
+        <span class="videoCard__like-icon" @click="incrementLikes">👍</span>
         <span class="videoCard__like-count">{{ likes }} Likes</span>
       </div>
     </div>
@@ -83,13 +83,13 @@ export default {
   &__likes {
     display: flex;
     align-items: center;
-    cursor: pointer;
     margin-top: 8px;
   }
 
   &__like-icon {
     font-size: 1.5em;
     margin-right: 8px;
+    cursor: pointer;
   }
 
   &__like-count {
