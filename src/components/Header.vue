@@ -15,7 +15,7 @@
                     <router-link to="/contact" class="nav-links">Contact Us</router-link>
                 </li>
                 <li>
-                    <router-link to="/tech" class="nav-links">Tech</router-link>
+                    <router-link to="/videos" class="nav-links">Videos</router-link>
                 </li>
             </ul>
         </nav>

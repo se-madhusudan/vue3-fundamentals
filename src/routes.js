@@ -21,8 +21,8 @@ const routes = [
         component:ContactUs
     },
     {
-        name: 'Tech',
-        path: '/tech',
+        name: 'Videos',
+        path: '/videos',
         component:Tech
     },
 ]
