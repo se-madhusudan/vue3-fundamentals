@@ -1,7 +1,6 @@
 <template>
   <div class="accordion">
     <div v-for="(item, index) in items" :key="index" class="accordion-item">
-      <!-- Accordion Header -->
       <div
         class="accordion-header"
         :class="{ active: activeIndex === index }"
@@ -10,24 +9,15 @@
         <span>{{ item.title }}</span>
         <span>{{ activeIndex === index ? "-" : "+" }}</span>
       </div>
-      <!-- Accordion Content -->
+
       <div class="accordion-content" v-show="activeIndex === index">
-        <VideoCard
-          v-for="(video, videoIndex) in item.videos"
-          :key="videoIndex"
-          :videoUrl="video.url"
-          :title="video.title"
-          :likes="video.likes"
-          @increment-likes="incrementLikes(index, videoIndex)"
-        />
+        <slot :item="item" :index="index" class="content"></slot>
       </div>
     </div>
   </div>
 </template>
   
   <script>
-import VideoCard from "./VideoCard.vue";
-
 export default {
   name: "Accordion",
   props: {
@@ -41,15 +31,9 @@ export default {
       activeIndex: 2,
     };
   },
-  components: {
-    VideoCard,
-  },
   methods: {
     toggle(index) {
       this.activeIndex = this.activeIndex === index ? null : index;
-    },
-    incrementLikes(accordionIndex, videoIndex) {
-      this.$emit("increment-likes", accordionIndex, videoIndex);
     },
   },
 };
@@ -72,6 +56,7 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+
 .accordion-header:hover,
 .accordion-header.active {
   background: #adadad;
@@ -80,9 +65,13 @@ export default {
 .accordion-content {
   padding: 10px;
   background: #fff;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-</style>
   
+}
+
+/* Apply flex styles to slot content (e.g., videoCard) */
+.accordion-content::v-deep .videoCard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+</style>  

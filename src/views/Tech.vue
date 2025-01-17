@@ -2,18 +2,37 @@
   <main>
     <h1>Videos</h1>
     <section class="accordion-container">
-      <Accordion :items="accordions" @increment-likes="incrementLikes" />
+      <Accordion :items="accordions">
+        <template v-slot:default="{ item, index }">
+          <div v-if="item.videos">
+            <div v-for="(video, videoIndex) in item.videos" :key="videoIndex">
+              <VideoCard
+                :videoUrl="video.url"
+                :title="video.title"
+                :likes="video.likes"
+                @increment-likes="incrementLikes(index, videoIndex)"
+              />
+            </div>
+          </div>
+          <div v-else>
+            <!-- If no videos, display text (default content type) -->
+            <p>{{ item.content }}</p>
+          </div>
+        </template>
+      </Accordion>
     </section>
   </main>
 </template>
 
 <script>
 import Accordion from "../components/Accordian.vue";
+import VideoCard from "../components/VideoCard.vue";
 
 export default {
   name: "Tech",
   components: {
     Accordion,
+    VideoCard,
   },
   data() {
     return {
@@ -98,7 +117,6 @@ export default {
   },
   methods: {
     incrementLikes(accordionIndex, videoIndex) {
-      // Increment likes for the specific video in the corresponding accordion section
       this.accordions[accordionIndex].videos[videoIndex].likes++;
     },
   },
