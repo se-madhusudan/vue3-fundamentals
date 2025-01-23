@@ -1,12 +1,17 @@
 <template>
-    <div class="card" :style="{ backgroundImage: `url(${imageURL})` }">
+    <div class="card" :style="{ backgroundImage: `url(${quoteDetail.imageURL})` }">
         <div class="overlay"></div>
         <div class="card__content">
+            <!--  
             <div class="card__quote">
-                <p>{{ quote }}</p>
+                <p>{{ quoteDetail.quote }}</p>
+            </div>
+            -->
+            <!-- above can be written as:  -->
+            <div class="card__quote" v-html="quoteDetail.quote">
             </div>
             <div class="card__author">
-                <p>{{ author }}</p>
+                <p>{{ quoteDetail.author }}</p>
             </div>
         </div>
     </div>
@@ -16,11 +21,44 @@
 
 <script>
 export default {
+    /*
     props: {
         imageURL: String,
         quote: String,
         author: String
     }
+    */
+   //the above can be written as 
+   props: {
+    quoteDetail: Object,
+   },
+
+   //lifecycle hooks - 
+   beforeCreate() {
+    alert('creating ⌚: quoteCard');
+   },
+   created() {
+    alert('created ✅: quoteCard');
+   },
+   beforeMount() {
+    alert('mounting ⌚: quoteCard');
+   },
+   mounted() {
+    alert('mounted ✅: quoteCard'); //component ui will be visible only after mounting is completed
+   },
+   beforeUpdate() {
+    alert('updating ⌚: quoteCard');
+   },
+   updated() {
+    alert('updated ✅: quoteCard');
+   },
+   beforeUnmount() {
+    alert('removing ⌚: quoteCard'); //component ui will be visible
+   },
+   unmounted() {
+    alert('removed ✅: quoteCard'); //component ui will be removed
+   }
+
 }
 </script>
 

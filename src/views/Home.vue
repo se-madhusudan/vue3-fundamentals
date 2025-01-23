@@ -54,12 +54,20 @@
     <section class="cardSection" v-if="showCard">
       <h2>Quotes (Components and Props)</h2>
       <div class="cardWrapper">
+        <!--  
         <QuoteCard 
           v-for="quoteDetail in quoteDetails" 
           :key="quoteDetail.id"
           :imageURL="quoteDetail.imageURL"
           :quote="quoteDetail.quote"
           :author="quoteDetail.author"
+        />
+        -->
+        <!-- The above can be written as -->
+        <QuoteCard 
+          v-for="quoteDetail in quoteDetails" 
+          :key="quoteDetail.id"
+          :quoteDetail="quoteDetail"
         />
       </div>
     </section>
