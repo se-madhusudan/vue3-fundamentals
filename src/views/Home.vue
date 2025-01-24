@@ -41,6 +41,7 @@
         <Counter text="Button 1" />
         <br> <br>
       </div>
+      <!--  
       <div>
         <Counter text="Button 2" />
         <br> <br>
@@ -49,6 +50,7 @@
         <Counter text="Button 3" />
         <br> <br>
       </div>
+      -->
     </section>
 
     <section class="cardSection" v-if="showCard">
@@ -187,6 +189,9 @@
     padding: 20px;
     h2 {
       margin: 0;
+    }
+    div {
+      margin: 20px;
     }
   }
   .cardSection {

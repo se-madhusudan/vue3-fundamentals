@@ -32,33 +32,6 @@ export default {
    props: {
     quoteDetail: Object,
    },
-
-   //lifecycle hooks - 
-   beforeCreate() {
-    alert('creating ⌚: quoteCard');
-   },
-   created() {
-    alert('created ✅: quoteCard');
-   },
-   beforeMount() {
-    alert('mounting ⌚: quoteCard');
-   },
-   mounted() {
-    alert('mounted ✅: quoteCard'); //component ui will be visible only after mounting is completed
-   },
-   beforeUpdate() {
-    alert('updating ⌚: quoteCard');
-   },
-   updated() {
-    alert('updated ✅: quoteCard');
-   },
-   beforeUnmount() {
-    alert('removing ⌚: quoteCard'); //component ui will be visible
-   },
-   unmounted() {
-    alert('removed ✅: quoteCard'); //component ui will be removed
-   }
-
 }
 </script>
 

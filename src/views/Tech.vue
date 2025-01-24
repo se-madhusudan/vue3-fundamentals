@@ -15,7 +15,7 @@
             </div>
           </div>
           <div v-else>
-            <!-- If no videos, display text (default content type) -->
+            <!-- display text if no video is present -->
             <p>{{ item.content }}</p>
           </div>
         </template>
