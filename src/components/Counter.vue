@@ -8,9 +8,14 @@ export default {
   data() {
     return {
       count: 0,
+      isUnmounted: false,
     };
   },
-  props: ["text"],
+  props: {
+    text: String,
+    counts: Number
+  },
+  emits: ['send-count'],
 
   //lifecycle hooks -
   beforeCreate() {
@@ -23,18 +28,25 @@ export default {
     alert("mounting ⌚: counter"); //component is mounting starts
   },
   mounted() {
+    this.isUnmounted = true;
+    console.log('after unmount - isUnmounted:', this.isUnmounted);
+    this.count = this.counts;
+    console.log('updated count: ', this.count);
     alert("mounted ✅: counter"); //component ui will be visible only after mounting is completed
   },
   beforeUpdate() {
-    alert("updating ⌚: counter");
+    alert("updating ⌚: counter"); //component ui ready for update posting reactive data change
   },
   updated() {
-    alert("updated ✅: counter");
+    alert("updated ✅: counter"); //component  ui is updated with new data
   },
   beforeUnmount() {
+    this.$emit('send-count', this.count);
     alert("removing ⌚: counter"); //component ui will be visible
   },
   unmounted() {
+    this.isUnmounted = true;
+    console.log('after unmount - isUnmounted:', this.isUnmounted);
     alert("removed ✅: counter"); //component ui will be removed
   },
 };

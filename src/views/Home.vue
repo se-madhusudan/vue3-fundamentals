@@ -38,7 +38,7 @@
     <section class="counterSection" v-if="showCounter">
       <h2>Child component (Counter): </h2>
       <div>
-        <Counter text="Button 1" />
+        <Counter text="Button 1" @send-count="updateCount" :counts="updatedCount"/>
         <br> <br>
       </div>
       <!--  
@@ -86,6 +86,7 @@
         showCounter: true,
         showCard: true,
         newTask: '',
+        updatedCount: 0,
         tasks: [
           { id: 1, name: 'Learning Vue', finished: false, edit: true },
           { id: 2, name: 'Practice Vue', finished: true, edit: true },
@@ -125,6 +126,10 @@
       },
       finishTask(task) {
         task.finished = !task.finished
+      },
+      
+      updateCount(count) {
+        this.updatedCount = count;
       }
     },
   
